@@ -1,3 +1,9 @@
-API_BASE = "https://koreanapi-production.up.railway.app"
+import os
+from dotenv import load_dotenv
 
-BOT_TOKEN = "7512734012:AAETX4VS0Hyu_Q4IhpMNFIdwBybfaDI4hwc"
+load_dotenv()
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+if not BOT_TOKEN:
+    raise RuntimeError("❌ BOT_TOKEN topilmadi. Railway/Render yoki .env ga qo'y.")

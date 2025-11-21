@@ -1,12 +1,13 @@
 from aiogram import Router, types
-from utils.keyboards import books_keyboard
+from aiogram.filters import CommandStart
+from aiogram.types import WebAppInfo
+from utils.keyboards import main_menu
 
 router = Router()
 
-@router.message(commands=["start"])
-async def start_command(msg: types.Message):
-    await msg.answer(
-        "📘 *Koreys tili — Flashcards bot*\n\nKitobni tanlang:",
-        reply_markup=books_keyboard(),
-        parse_mode="Markdown"
+@router.message(CommandStart())
+async def start_cmd(message: types.Message):
+    await message.answer(
+        "👋 Salom! Quyidagi tugma orqali Koreys Flashcards web-appni oching:",
+        reply_markup=main_menu()
     )

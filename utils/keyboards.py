@@ -1,23 +1,16 @@
-from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
-def books_keyboard():
-    kb = InlineKeyboardMarkup()
-    for b in ["1A", "1B", "2A", "2B"]:
-        kb.add(InlineKeyboardButton(text=b, callback_data=f"book:{b}"))
-    return kb
+WEBAPP_URL = "https://korean-web-pied.vercel.app"   # 🔥 SENING WEBAPP LINKING
 
-def gwa_keyboard():
-    kb = InlineKeyboardMarkup()
-    for i in range(1, 9):
-        kb.add(InlineKeyboardButton(text=f"{i}과", callback_data=f"gwa:{i}"))
-    kb.add(InlineKeyboardButton(text="⬅ Ortga", callback_data="back_books"))
-    return kb
-
-def control_keyboard():
-    kb = InlineKeyboardMarkup()
-    kb.row(
-        InlineKeyboardButton(text="➡ Keyingi", callback_data="next"),
-        InlineKeyboardButton(text="🔊 Ovoz", callback_data="tts")
+def main_menu():
+    return ReplyKeyboardMarkup(
+        keyboard=[
+            [
+                KeyboardButton(
+                    text="🇰🇷 Flashcards ochish",
+                    web_app=WebAppInfo(url=WEBAPP_URL)
+                )
+            ]
+        ],
+        resize_keyboard=True
     )
-    kb.add(InlineKeyboardButton(text="⬅ Ortga", callback_data="back_gwa"))
-    return kb

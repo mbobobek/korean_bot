@@ -2,6 +2,7 @@ services:
   - type: worker
     name: korean_bot
     env: python
+    rootDir: .
     buildCommand: pip install -r requirements.txt
     startCommand: python main.py
     autoDeploy: true

@@ -1,6 +1,6 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
-WEBAPP_URL = "https://korean-web-pied.vercel.app"  # Web app URL
+WEBAPP_URL = "https://korean-web-interface.vercel.app"  # Web app URL
 
 
 def main_menu():
